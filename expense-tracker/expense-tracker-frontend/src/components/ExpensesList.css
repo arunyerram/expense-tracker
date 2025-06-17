@@ -1,0 +1,174 @@
+/* App.css or ExpensesList.css */
+
+.expenses-container {
+  max-width: 800px;
+  margin: 2.5rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px -8px rgba(30, 34, 90, 0.09);
+  padding: 2rem 2rem 1.5rem 2rem;
+}
+
+.expenses-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.3rem;
+  color: #20224a;
+  letter-spacing: -0.5px;
+}
+
+.budget-section {
+  background: #f5f8fb;
+  border: 1px solid #e0e5ec;
+  border-radius: 9px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  max-width: 400px;
+}
+
+.budget-section label {
+  font-weight: 600;
+  color: #30415d;
+  font-size: 1rem;
+}
+
+.budget-section input[type="number"] {
+  padding: 6px 14px;
+  border: 1px solid #cdd5e1;
+  border-radius: 5px;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  background: #fff;
+  outline: none;
+}
+
+.budget-status {
+  font-size: 1rem;
+  margin-left: 1.5rem;
+  font-weight: 500;
+}
+
+.budget-status--ok {
+  color: #219150;
+}
+.budget-status--warn {
+  color: #f24534;
+}
+
+/* --- Filters Section --- */
+.filters-bar {
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 1rem;
+}
+
+.filters-bar label {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.filters-bar select,
+.filters-bar input[type="date"] {
+  padding: 5px 12px;
+  margin-left: 6px;
+  border: 1px solid #cfd8e3;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: #fcfcff;
+}
+
+.filters-bar button {
+  background: #ece9fc;
+  color: #4125ba;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.17s;
+  margin-left: 0.3rem;
+}
+.filters-bar button:hover {
+  background: #e1defa;
+}
+
+/* --- Expense List --- */
+.expenses-list {
+  width: 100%;
+  margin-top: 0.8rem;
+  border-collapse: collapse;
+}
+
+.expenses-list th,
+.expenses-list td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #f0f1f3;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.expenses-list th {
+  background: #f6f8fa;
+  font-size: 1.04rem;
+  font-weight: 600;
+  color: #23315b;
+  border-top: 1px solid #e0e5ec;
+}
+
+.expenses-list tr:last-child td {
+  border-bottom: none;
+}
+
+/* Buttons for edit/delete */
+.action-btn {
+  padding: 5px 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background 0.16s;
+}
+
+.edit-btn {
+  background: #e0ecfb;
+  color: #1863bc;
+}
+.edit-btn:hover {
+  background: #cbe0fa;
+}
+
+.delete-btn {
+  background: #fae0e6;
+  color: #c13541;
+}
+.delete-btn:hover {
+  background: #fad2d9;
+}
+
+@media (max-width: 650px) {
+  .expenses-container {
+    padding: 1.2rem 0.3rem;
+  }
+  .budget-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+  }
+  .filters-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  .expenses-list th,
+  .expenses-list td {
+    padding: 0.5rem 0.3rem;
+    font-size: 0.93rem;
+  }
+}
