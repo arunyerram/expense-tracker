@@ -23,7 +23,7 @@ export default function ExpensesList() {
     const token = localStorage.getItem("token");
     if (!token) return nav("/login");
 
-    fetch("https://expense-tracker-3-47ra.onrender.com/expenses", {
+    fetch("http://127.0.0.1:8000/expenses", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(async (res) => {
@@ -65,7 +65,7 @@ export default function ExpensesList() {
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this expense?")) return;
     try {
-      const res = await fetch(`https://expense-tracker-3-47ra.onrender.com/expenses/${id}`, {
+      const res = await fetch(`http://127.0.0.1:8000/expenses/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });

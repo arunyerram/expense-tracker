@@ -22,7 +22,7 @@ export default function EditExpense() {
       try {
         const token = localStorage.getItem('token');
         const resp = await axios.get(
-          `https://expense-tracker-3-47ra.onrender.com/expenses/${id}`,
+          `http://127.0.0.1:8000/expenses/${id}`,
           {
             headers: {
               'Authorization': `Bearer ${token}`,
@@ -59,7 +59,7 @@ export default function EditExpense() {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        `https://expense-tracker-3-47ra.onrender.com/expenses/${id}`,
+        `http://127.0.0.1:8000/expenses/${id}`,
         {
           title:       form.title,
           amount:      parseFloat(form.amount),

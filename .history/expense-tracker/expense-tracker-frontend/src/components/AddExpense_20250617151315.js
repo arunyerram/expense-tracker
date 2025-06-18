@@ -24,7 +24,7 @@ export default function AddExpense() {
     const token = localStorage.getItem('token');
     try {
       await axios.post(
-        'https://expense-tracker-3-47ra.onrender.com/expenses',
+        'http://127.0.0.1:8000/expenses',
         {
           ...form,
           amount: parseFloat(form.amount),

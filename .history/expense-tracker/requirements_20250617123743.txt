@@ -1,0 +1,13 @@
+
+motor
+python-dotenv
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+python-dotenv
+python-jose[cryptography]
+passlib[bcrypt]
+bcrypt==3.2.0
+python-jose[cryptography]
+passlib[bcrypt]

@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
-export default function Register() {
+export default function Login() {
   const [form, setForm] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -14,27 +13,27 @@ export default function Register() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    try {
-      await axios.post("https://expense-tracker-3-47ra.onrender.com/register", form);
-      setSuccess(true);
-      setTimeout(() => navigate("/login"), 1200);
-    } catch (err) {
-      setError(
-        err.response?.data?.detail || "Registration failed. Try a different username."
-      );
-    }
-  };
+  e.preventDefault();
+  setError("");
+  try {
+    const resp = await axios.post(
+      "http://127.0.0.1:8000/login",
+      new URLSearchParams(form),
+      { headers: { "Content-Type": "application/x-www-form-urlencoded" } } // <--- ADD THIS
+    );
+    localStorage.setItem("token", resp.data.access_token);
+    navigate("/");
+  } catch (err) {
+    setError("Invalid username or password");
+  }
+};
+
 
   return (
     <div style={styles.bg}>
       <form style={styles.card} onSubmit={handleSubmit}>
-        <h2 style={styles.title}>Register</h2>
+        <h2 style={styles.title}>Login</h2>
         {error && <div style={styles.error}>{error}</div>}
-        {success && (
-          <div style={styles.success}>Registration successful! Redirecting to login…</div>
-        )}
         <div style={styles.inputGroup}>
           <label>Username</label>
           <input
@@ -43,6 +42,7 @@ export default function Register() {
             value={form.username}
             onChange={handleChange}
             required
+            autoFocus
             autoComplete="username"
           />
         </div>
@@ -55,12 +55,12 @@ export default function Register() {
             value={form.password}
             onChange={handleChange}
             required
-            autoComplete="new-password"
+            autoComplete="current-password"
           />
         </div>
-        <button type="submit" style={styles.button}>Create Account</button>
+        <button type="submit" style={styles.button}>Log In</button>
         <div style={styles.link}>
-          Already have an account? <Link to="/login">Login</Link>
+          Don't have an account? <Link to="/register">Register</Link>
         </div>
       </form>
     </div>
@@ -102,7 +102,7 @@ const styles = {
     fontSize: "1rem"
   },
   button: {
-    background: "#43a047",
+    background: "#2979ff",
     color: "#fff",
     border: "none",
     borderRadius: 6,
@@ -118,16 +118,10 @@ const styles = {
     borderRadius: 6,
     textAlign: "center"
   },
-  success: {
-    background: "#e8f5e9",
-    color: "#1b5e20",
-    padding: "0.5rem",
-    borderRadius: 6,
-    textAlign: "center"
-  },
   link: {
     marginTop: 10,
     textAlign: "center",
     fontSize: "0.97rem"
   }
 };
+

@@ -17,7 +17,7 @@ export default function Register() {
     e.preventDefault();
     setError("");
     try {
-      await axios.post("https://expense-tracker-3-47ra.onrender.com/register", form);
+      await axios.post("http://127.0.0.1:8000/register", form);
       setSuccess(true);
       setTimeout(() => navigate("/login"), 1200);
     } catch (err) {

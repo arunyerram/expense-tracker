@@ -59,7 +59,7 @@ export default function EditExpense() {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        `https://expense-tracker-3-47ra.onrender.com/expenses/${id}`,
+        `/expenses/${id}`,
         {
           title:       form.title,
           amount:      parseFloat(form.amount),

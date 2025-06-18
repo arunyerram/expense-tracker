@@ -8,4 +8,4 @@ python-multipart
 python-jose
 pydantic
 dnspython
-
+bson

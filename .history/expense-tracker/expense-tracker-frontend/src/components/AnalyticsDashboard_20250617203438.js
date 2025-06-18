@@ -26,7 +26,7 @@ ChartJS.register(
   Title
 );
 
-const API_URL = process.env.REACT_APP_API_URL || "https://expense-tracker-3-47ra.onrender.com";
+const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
 
 // --- CSV Export Helper ---
 function exportCSV(data) {
