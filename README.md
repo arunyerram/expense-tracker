@@ -2,6 +2,9 @@
 
 A **full-stack web application** to track your personal expenses. Users can register, login, add/edit/delete expenses, and view detailed analytics—all with persistent data stored securely in MongoDB.
 
+
+Deployed Link: https://spendly-app.netlify.app/
+
 ---
 
 ## Features
